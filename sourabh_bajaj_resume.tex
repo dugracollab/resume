@@ -62,6 +62,52 @@
     \end{tabular*}\vspace{-5pt}
 }
 
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{fourcolentry}[4][]{
+    \onecolentry
+    \def\fourthColumn{#4}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{4}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \fourthColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for four column entries
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -100,23 +146,39 @@
 
 %-----------EDUCATION-----------------
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Master of Science in Computer Science; GPA: 4.00}{Aug 2012 -- Dec 2013}
-    \resumeSubheading
-      {Birla Institute of Technology and Science}{Pilani, India}
-      {Bachelor of Engineering in Electrical and Electronics; GPA: 3.66 (9.15/10.0)}{Aug 2008 -- July 2012}
-  \resumeSubHeadingListEnd
+  \begin{twocolentry}{
+            \textbf{Georgia Institute of Technology}
+        }  Atlanta, GA
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Master of Science in Computer Science; GPA: 4.00}
+        }  Aug 2012 -- Dec 2013
+        \end{onecolentry}
 
+  \begin{twocolentry}{
+            \textbf{Birla Institute of Technology and Science}
+        }  Pilani, India
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Bachelor of Engineering in Electrical and Electronics; GPA: 3.66 (9.15/10.0)}
+        }  Aug 2008 -- July 2012
+        \end{onecolentry}
+    
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
 
-    \resumeSubheading
-      {Google}{Mountain View, CA}
-      {Software Engineer}{Oct 2016 -- Present}
+
+    \begin{twocolentry}{
+            \textbf{Google}
+        }  Mountain View, CA
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Software Engineer}
+        }  Oct 2016 -- Present
+        \end{onecolentry}
+        
       \resumeItemListStart
         \resumeItem{TensorFlow}
           {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models. Worked on APIs and performance for training models on Tensor Processing Units (TPU).}
@@ -134,9 +196,16 @@
 
 %-------------------------------------------
 
-    \resumeSubheading
-      {Coursera}{Mountain View, CA}
-      {Senior Software Engineer}{Jan 2014 -- Oct 2016}
+    
+    \begin{twocolentry}{
+            \textbf{Coursera}
+        }  Mountain View, CA
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Senior Software Engineer}
+        }  Jan 2014 -- Oct 2016
+        \end{onecolentry}
+
       \resumeItemListStart
         \resumeItem{Notifications}
           {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
@@ -158,9 +227,16 @@
           {Instructor dashboards and learner surveying tools, which helped instructors run their class better by providing data on Assignments and Learner Activity.}
       \resumeItemListEnd
 
-    \resumeSubheading
-      {Lucena Research}{Atlanta, GA}
-      {Data Scientist}{Summer 2012 and 2013}
+    
+    \begin{twocolentry}{
+            \textbf{Lucena Research}
+        }  Atlanta, GA
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Data Scientist}
+        }  Summer 2012 and 2013
+        \end{onecolentry}
+  
       \resumeItemListStart
         \resumeItem{Portfolio Management}
           {Created models for portfolio hedging, portfolio optimization and price forecasting. Also created a strategy backtesting engine used for simulating and backtesting strategies.}
@@ -168,9 +244,16 @@
           {Python backend for a web application used by hedge fund managers for portfolio management.}
       \resumeItemListEnd
 
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Research and Teaching Assistant}{Jan 2012 -- Dec 2013}
+    
+    \begin{twocolentry}{
+            \textbf{Georgia Institute of Technology}
+        }  Atlanta, GA
+        \end{twocolentry}
+  \begin{onecolentry}{
+            {Research and Teaching Assistant}
+        }  Jan 2012 -- Dec 2013
+        \end{onecolentry}
+  
       \resumeItemListStart
         \resumeItem{Research Assistant -- Machine Learning}
           {Research on machine learning for portfolio hedging and replication algorithms. Modeling low-risk \& continuous-return strategies. Developed the Python library QSTK.}
